@@ -7,7 +7,7 @@ function TodoItem({ todo, onToggle, onDelete }) {
   const handleDelete = () => {
     setIsDeleting(true);
     setTimeout(() => {
-      onDelete();
+      onDelete(todo._id);
     }, 300); // Matches the duration of the fade-out animation
   };
 

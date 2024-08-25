@@ -7,7 +7,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/todos')
+    fetch('http://localhost:5000/todos')  // Ensure this matches your backend URL
       .then(response => response.json())
       .then(data => setTodos(data));
   }, []);
@@ -16,14 +16,14 @@ function App() {
     fetch('http://localhost:5000/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: Date.now(), text, completed: false })
+      body: JSON.stringify({ text, completed: false })
     })
       .then(response => response.json())
       .then(newTodo => setTodos([...todos, newTodo]));
   };
 
   const toggleTodo = (id) => {
-    const todo = todos.find(todo => todo.id === id);
+    const todo = todos.find(todo => todo._id === id);
     fetch(`http://localhost:5000/todos/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -32,7 +32,7 @@ function App() {
       .then(response => response.json())
       .then(updatedTodo => setTodos(
         todos.map(todo =>
-          todo.id === id ? updatedTodo : todo
+          todo._id === id ? updatedTodo : todo
         )
       ));
   };
@@ -41,7 +41,7 @@ function App() {
     fetch(`http://localhost:5000/todos/${id}`, {
       method: 'DELETE'
     })
-      .then(() => setTodos(todos.filter(todo => todo.id !== id)));
+      .then(() => setTodos(todos.filter(todo => todo._id !== id)));
   };
 
   return (
