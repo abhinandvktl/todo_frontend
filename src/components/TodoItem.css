@@ -1,0 +1,43 @@
+/* TodoItem.css */
+.todo-item {
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .todo-item.completed {
+    background-color: #d4edda; /* Light green background */
+    animation: greenAnimation 0.5s forwards;
+  }
+  
+  @keyframes greenAnimation {
+    from {
+      background-color: #ffffff; /* White background */
+    }
+    to {
+      background-color: #d4edda; /* Light green background */
+    }
+  }
+  
+  .todo-item.deleting {
+    background-color: red;
+    color: white;
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  

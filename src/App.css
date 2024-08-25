@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+li.deleting {
+  background-color: red;
+  color: white;
+  opacity: 0;
+}
+
+button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-right: 10px;
+}
